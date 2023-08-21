@@ -1,0 +1,14 @@
+<mvc:View controllerName="academia.controller.Main" displayBlock="true"
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.f"
+	xmlns:card="sap.f.cards"
+	xmlns="sap.m">
+
+	<f:Card id="card1" class="sapUiMediumMargin" width="95%">
+		<f:header>
+			<card:Header id="cardheader1" title="{i18n>inmobiliaria}" subtitle="{i18n>usuario}" iconSrc="sap-icon://building"/>
+		</f:header>
+	</f:Card>
+</mvc:View>

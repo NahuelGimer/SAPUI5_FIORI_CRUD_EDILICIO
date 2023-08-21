@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZOS_ACADE_ORDEN_2023_FINAL_SRV" xml:lang="es" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="IdOrdenTrabajo" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="IDORDENTRABAJO"/>
+                </Key>
+                <Property Name="IDORDENTRABAJO" Type="Edm.String" Nullable="false" MaxLength="13" sap:unicode="false" sap:label="IDORDENTRABAJO" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TAREA" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="TAREA" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="STATUS" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="STATUS" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DESCSTATUS" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="DESCSTATUS" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UBICACION" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="UBICACION" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ENCARGADO" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="ENCARGADO" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="ToEquiposTrabajoSet" Relationship="ZOS_ACADE_ORDEN_2023_FINAL_SRV.ZASOC_ORD_EQ_FINAL" FromRole="FromRole_ZASOC_ORD_EQ_FINAL" ToRole="ToRole_ZASOC_ORD_EQ_FINAL"/>
+            </EntityType>
+            <EntityType Name="EquiposTrabajo" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="INTEQUIPO"/>
+                    <PropertyRef Name="IDORDENTRABAJO"/>
+                </Key>
+                <Property Name="INTEQUIPO" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="INTEQUIPO" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IDORDENTRABAJO" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="IDORDENTRABAJO" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NOMBRE" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="NOMBRE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IMAGEN" Type="Edm.String" Nullable="false" MaxLength="220" sap:unicode="false" sap:label="IMAGEN" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="COMPLETADAS" Type="Edm.String" Nullable="false" MaxLength="90" sap:unicode="false" sap:label="COMPLETADAS" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="INCOMPLETAS" Type="Edm.String" Nullable="false" MaxLength="90" sap:unicode="false" sap:label="INCOMPLETAS" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PROGRESO" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="PROGRESO" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="ZASOC_ORD_EQ_FINAL" sap:content-version="1">
+                <End Type="ZOS_ACADE_ORDEN_2023_FINAL_SRV.IdOrdenTrabajo" Multiplicity="1" Role="FromRole_ZASOC_ORD_EQ_FINAL"/>
+                <End Type="ZOS_ACADE_ORDEN_2023_FINAL_SRV.EquiposTrabajo" Multiplicity="*" Role="ToRole_ZASOC_ORD_EQ_FINAL"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ZASOC_ORD_EQ_FINAL">
+                        <PropertyRef Name="IDORDENTRABAJO"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ZASOC_ORD_EQ_FINAL">
+                        <PropertyRef Name="IDORDENTRABAJO"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZOS_ACADE_ORDEN_2023_FINAL_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="IdOrdenTrabajoSet" EntityType="ZOS_ACADE_ORDEN_2023_FINAL_SRV.IdOrdenTrabajo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="EquiposTrabajoSet" EntityType="ZOS_ACADE_ORDEN_2023_FINAL_SRV.EquiposTrabajo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <AssociationSet Name="ZASOC_ORD_EQ_FINALSet" Association="ZOS_ACADE_ORDEN_2023_FINAL_SRV.ZASOC_ORD_EQ_FINAL" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="IdOrdenTrabajoSet" Role="FromRole_ZASOC_ORD_EQ_FINAL"/>
+                    <End EntitySet="EquiposTrabajoSet" Role="ToRole_ZASOC_ORD_EQ_FINAL"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="http://stks4hpil.eastus2.cloudapp.azure.com:8002/sap/opu/odata/sap/ZOS_ACADE_ORDEN_2023_FINAL_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://stks4hpil.eastus2.cloudapp.azure.com:8002/sap/opu/odata/sap/ZOS_ACADE_ORDEN_2023_FINAL_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,43 @@
+<mvc:View controllerName="ediliciofinal.controller.Main" displayBlock="true"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.f"
+	xmlns:card="sap.f.cards"
+	xmlns="sap.m"
+	xmlns:main="sap.ui.webc.main">
+
+	<Page id="page" title="{i18n>title}">
+		<core:Fragment xmlns:mvc="sap.ui.core.mvc"
+			xmlns:core="sap.ui.core"
+			xmlns:l="sap.ui.layout"
+			xmlns:f="sap.f"
+			xmlns:card="sap.f.cards"
+			xmlns="sap.m" id="idFragHeader" fragmentName="ediliciofinal.utils.fragments.Header-Main" type="XML"/>
+
+		<Bar id="_IDGenBar1">
+			<contentLeft>
+				<SearchField id="_IDGenSearchField1" placeholder="{i18n>buscador}" search="searchMain" width="99%" />
+			</contentLeft>
+		</Bar>
+
+		<HBox id="hbox1" height="30px"></HBox>
+
+		<List id="list" enableBusyIndicator="true" growing="true" items="{/IdOrdenTrabajoSet}">
+			<ObjectListItem id="_IDGenObjectListItem1" type="Navigation" press="navigationMain" title="{i18n>idOrden} {IDORDENTRABAJO}" icon="sap-icon://document-text" iconDensityAware="true">
+				<firstStatus>
+					<ObjectStatus id="objectstatus1" state="{= ${STATUS} > 1 ? 'Success' : 'Error' }" text="{DESCSTATUS}" />
+				</firstStatus>
+				<attributes>
+					<ObjectAttribute id="objectattribute1" title="{i18n>tareaOrden}" text="{TAREA}"/>
+					<ObjectAttribute id="objectattribute2" title="{i18n>descstatusOrden}" text="{DESCSTATUS}"/>
+					<ObjectAttribute id="objectattribute3" title="{i18n>ubicacionOrden}" text="{UBICACION}"/>
+					<ObjectAttribute id="objectattribute4" title="{i18n>encargadoOrden} " text="{ENCARGADO}"/>
+					<ObjectAttribute id="objectattribute5" title="{i18n>fechaOrden}" text="{FECHA}"/>
+				</attributes>
+			</ObjectListItem>
+		</List>
+
+	</Page>
+
+</mvc:View>

@@ -1,0 +1,74 @@
+<mvc:View controllerName="ediliciofinal.controller.Detail" displayBlock="true" class="sapUiBodyBackground sapContrastPlus sapContrast" height="100%"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout"
+	xmlns:semantic="sap.f.semantic"
+	xmlns:f="sap.f"
+	xmlns:core="sap.ui.core"
+	xmlns:card="sap.f.cards"
+	xmlns:main="sap.ui.webc.main"
+	xmlns:grid="sap.ui.layout.cssgrid">
+
+	<Page id="page" title="{i18n>title}">
+		<core:Fragment xmlns:mvc="sap.ui.core.mvc"
+			xmlns:core="sap.ui.core"
+			xmlns:l="sap.ui.layout"
+			xmlns:f="sap.f"
+			xmlns:card="sap.f.cards"
+			xmlns="sap.m" id="idFragHeader" fragmentName="ediliciofinal.utils.fragments.Header-Main" type="XML"/>
+
+		<Title id="titleChild" text="{i18n>idOrden} {IDORDENTRABAJO}" textAlign="Left" width="100%" titleStyle="H1"/>
+
+		<List id="list" mode="Delete" delete="deleteTeam" items="{ToEquiposTrabajoSet}">
+			<CustomListItem id="papo123">
+				<VBox id="vbox1" alignItems="Center" alignContent="Center" class="sapUiSmallMargin">
+					<Title id="title1" text="{NOMBRE}" width="100%" titleStyle="H2"/>
+					<VBox id="vbox2" height="15px"></VBox>
+					<Text id="text1" text="{i18n>oficioEquipo} {OFICIO}"></Text>
+					<VBox id="vbox3" height="10px"></VBox>
+					<Text id="text2" text="{i18n>liderEquipo} {LIDER}"></Text>
+					<VBox id="vbox4" height="15px"></VBox>
+					<Image id="_IDGenImage2" src="{IMAGEN}" width="175px" height="150px"/>
+					<HBox id="hbox2">
+						<VBox id="vbox5" alignItems="Center">
+							<main:Avatar id="avatar1" icon="status-positive" size="S" colorScheme="Accent8"/>
+							<VBox id="vbox6" height="20px"></VBox>
+							<Button id="button1" type="Accept" text="{i18n>completadasEquipo}">
+								<layoutData>
+									<FlexItemData id="flex1" growFactor="1" />
+								</layoutData>
+							</Button>
+							<VBox id="vbox7" height="25px"></VBox>
+							<Text id="text3" text="{COMPLETADAS}"></Text>
+						</VBox>
+						<HBox id="hbox3" width="100px"></HBox>
+						<VBox id="vbox8" alignItems="Center">
+							<main:Avatar id="avatar2" icon="status-negative" size="S" colorScheme="Accent2" />
+							<VBox id="vbox9" height="20px"></VBox>
+							<Button id="button2" type="Reject" text="{i18n>incompletasEquipo}">
+								<layoutData>
+									<FlexItemData id="flex2" growFactor="1" />
+								</layoutData>
+							</Button>
+							<VBox id="vbox10" height="25px"></VBox>
+							<Text id="text4" text="{INCOMPLETAS}"></Text>
+						</VBox>
+					</HBox>
+					<VBox id="vbox11" height="20px"></VBox>
+					<Button id="button3" type="Emphasized" text="{i18n>telefonoEquipo} {TELEFONO}" press="callTeam" class="sapUiSmallMargin">
+						<layoutData>
+							<FlexItemData id="flex3" growFactor="1" />
+						</layoutData>
+					</Button>
+				</VBox>
+			</CustomListItem>
+		</List>
+		<footer>
+			<Toolbar id="toolbar1">
+				<ToolbarSpacer id="toolbarspacer1"/>
+				<Button id="dialogButton" text="{i18n>crearEquipo}" press=".createTeam" icon="sap-icon://family-protection" type="Success" />
+			</Toolbar>
+		</footer>
+	</Page>
+
+</mvc:View>

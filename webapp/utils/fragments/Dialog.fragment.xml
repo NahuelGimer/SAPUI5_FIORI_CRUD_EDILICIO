@@ -1,0 +1,39 @@
+<core:FragmentDefinition xmlns:mvc="sap.ui.core.mvc"
+    xmlns:layout="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:fiori="sap.ui.webc.fiori"
+    xmlns:l="sap.ui.layout">
+
+    <Dialog id="openDialog" title="CREAR EQUIPO" contentWidth="40%">
+        <content>
+            <Label id="_IDGenLabel1" text="INGRESE NOMBRE DEL EQUIPO"/>
+            <Input id="_IDGenInput1" value="{mEquipo>/nombreEquipo/NOMBRE}" placeholder="LOS OSOS PARDOS"></Input>
+
+            <Label id="_IDGenLabel22" text="OFICIO DEL EQUIPO"/>
+            <Input id="_IDGenInpu22" value="{mEquipo>/nombreEquipo/OFICIO}" placeholder="CARPINTERÍA"></Input>
+
+            <Label id="_IDGenLabel222" text="LIDER DEL EQUIPO"/>
+            <Input id="_IDGenInpu222" value="{mEquipo>/nombreEquipo/LIDER}" placeholder="PABLO ALLIN"></Input>
+
+            <Label id="_IDGenLabel2" text="TAREAS COMPLETADAS DEL EQUIPO"/>
+            <Input id="_IDGenInpu2" value="{mEquipo>/nombreEquipo/COMPLETADAS}" placeholder="ARREGLO DE MESADA"></Input>
+
+            <Label id="_IDGenLabel3" text="TAREAS POR COMPLETAR DEL EQUIPO"/>
+            <Input id="_IDGenInpu3" value="{mEquipo>/nombreEquipo/INCOMPLETAS}" placeholder="PLANILLA DE REPORTE"></Input>
+
+            <Label id="_IDGenLabel4" text="TELÉFONO DEL LIDER DEL EQUIPO"/>
+            <Input id="_IDGenInput4" value="{mEquipo>/nombreEquipo/TELEFONO}" placeholder="(+54) 9 1126101998"></Input>
+
+            <Label id="_IDGenLabel6" text="URL DE LA IMAGEN DEL EQUIPO:"/>
+            <Input id="_IDGenInput6" value="{mEquipo>/nombreEquipo/IMAGEN}" placeholder="https://cdn.pixabay.com/photo/2022/01/11/21/48/link-6931554_640.png"></Input>
+        </content>
+
+        <buttons>
+            <Button id="_IDGenButton1" text="Guardar" press=".openTeamDialog" type="Success" class="sapUiMarginBottom"></Button>
+            <Button id="_IDGenButton2" text="Cancelar" press=".closeTeamDialog" type="Negative" class="sapUiMarginBottom"></Button>
+        </buttons>
+
+    </Dialog>
+</core:FragmentDefinition>
